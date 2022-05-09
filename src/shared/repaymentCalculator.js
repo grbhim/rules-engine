@@ -10,8 +10,6 @@ function monthlyPayment(loanTermYears, loanAmount) {
     repaymentByLenders.push(`${(pmt(rules[lender].interest_rate / 12, loanTermYears.value.year * 12, loanAmount.value)-rules[lender].monthly_fee) * addAdditionalFee(lender, rules, loanTermYears)}`);
   }
 
-  console.log(repaymentByLenders)
-
   return repaymentByLenders;
 }
 
