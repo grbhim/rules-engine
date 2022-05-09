@@ -18,7 +18,7 @@
         label="Loan Term Years"
         class="q-pa-md" />
 
-      <q-btn @click="this.showLenders" unelevated rounded color="default" label="Submit" class="float-right q-ma-lg" />
+      <q-btn @click="showLenders" unelevated rounded color="default" label="Submit" class="float-right q-ma-lg" />
 
     </q-card>
 
@@ -30,10 +30,10 @@
 </template>
 
 <script>
-import {defineComponent, ref, computed} from 'vue'
+import {defineComponent, ref} from 'vue'
 import {LocalStorageService} from "src/services/local-storage";
 import {RepaymentCalculator} from "src/shared/repaymentCalculator";
-import LoanOptions from "components/LoanOptions";
+import LoanOptions from "components/loan/LoanOptions";
 let pmt = require('formula-pmt');
 
 export default defineComponent({
@@ -47,7 +47,7 @@ export default defineComponent({
     let showLenderOptions = ref(false);
     let monthlyPayment = ref(null);
 
-    LocalStorageService.create();
+    LocalStorageService.createDefault();
 
     function showLenders() {
       monthlyPayment.value = RepaymentCalculator.monthlyPayment(loanTermYears, loanAmount);

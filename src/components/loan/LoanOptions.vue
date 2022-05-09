@@ -11,11 +11,9 @@
       <q-separator/>
 
       <q-card-section horizontal>
-        <q-card-section class="col-6 bg-default text-white">
-          Lender A
-        </q-card-section>
-        <q-card-section class="col-6 bg-default text-white">
-          Lender B
+        <q-card-section v-for="lender in getAllLenders" :key="lender" class="col-6 bg-default text-white">
+          {{ lender.name }}
+          <q-separator  vertical/>
         </q-card-section>
       </q-card-section>
 
@@ -32,14 +30,21 @@
 </template>
 
 <script>
-import {StringIdGenerator} from "src/shared/alphabetIncreament";
-import {watch} from "vue";
+import {LocalStorageService} from "src/services/local-storage";
+import {ref} from "vue";
 
 export default {
   name: "LoanOptions",
   props: {
     monthlyPayment: {
       type: Object
+    }
+  },
+  setup() {
+    const getAllLenders = ref(LocalStorageService.restore());
+
+    return {
+      getAllLenders
     }
   }
 }

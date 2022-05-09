@@ -3,22 +3,28 @@ import {Lenders} from "src/services/lenders";
 const localStorageKeyPrefix = 'rules';
 let items = {};
 
-function create() {
+function createDefault() {
 
   let lenderA = new Lenders();
+  lenderA.name = 'lenderA';
   lenderA.interest_rate = 0.055;
   lenderA.monthly_fee = 40;
   lenderA.broker_fee = 0.02;
 
-  store('lenderA', lenderA);
+  store(lenderA.name, lenderA);
 
   let lenderB = new Lenders();
+  lenderB.name = 'lenderB';
   lenderB.interest_rate = 0.09;
   lenderB.monthly_fee = 50;
   lenderB.broker_fee = 0.0175;
 
-  store('lenderB', lenderB);
+  store(lenderB.name, lenderB);
 
+}
+
+function addNew(lender) {
+  store(lender.name, lender)
 }
 
 function restore() {
@@ -41,7 +47,8 @@ function store(key, data) {
 }
 
 export const LocalStorageService = {
-  create,
+  createDefault,
+  addNew,
   restore,
   getValue,
   hasKey,

@@ -13,7 +13,6 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 
 
 const { configure } = require('quasar/wrappers');
-const {QToolbar, QToolbarTitle, QLinearProgress, QBadge} = require("quasar");
 
 module.exports = configure(function (ctx) {
   return {
@@ -107,11 +106,11 @@ module.exports = configure(function (ctx) {
       // (like functional components as one of the examples),
       // you can manually specify Quasar components/directives to be available everywhere:
       //
-      components: ['QLinearProgress', 'QBadge'],
+      // components: [],
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: ['Notify']
     },
 
     // animations: 'all', // --- includes all animations
