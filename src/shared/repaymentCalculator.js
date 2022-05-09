@@ -7,14 +7,14 @@ function monthlyPayment(loanTermYears, loanAmount) {
   let repaymentByLenders = [];
 
   for (const lender in rules) {
-    repaymentByLenders.push(`${(pmt(rules[lender].interest_rate / 12, loanTermYears.value.year * 12, loanAmount.value)-rules[lender].monthly_fee) * addAdditionalFee(lender, rules, loanTermYears)}`);
+    repaymentByLenders.push(`${(pmt(parseFloat(rules[lender].interest_rate) / 12, parseInt(loanTermYears.value.year) * 12, parseInt(loanAmount.value))-parseFloat(rules[lender].monthly_fee)) * addAdditionalFee(lender, rules, loanTermYears)}`);
   }
 
   return repaymentByLenders;
 }
 
 function addAdditionalFee(lender, rules, loanTermYears) {
-  return (1+(rules[lender].broker_fee/(loanTermYears.value.year * 12)));
+  return (1+(parseFloat(rules[lender].broker_fee)/(parseInt(loanTermYears.value.year) * 12)));
 }
 
 export const RepaymentCalculator = {

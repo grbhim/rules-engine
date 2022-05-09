@@ -21,7 +21,7 @@
 
       <q-card-section horizontal>
         <q-card-section v-for="payment in monthlyPayment" :key="payment" class="col-6">
-          {{ parseInt(payment).toFixed(2) }}
+          {{ parseFloat(payment).toFixed(2) }}
         </q-card-section>
       </q-card-section>
     </q-card>

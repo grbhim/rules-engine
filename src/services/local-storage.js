@@ -15,7 +15,7 @@ function createDefault() {
 
   let lenderB = new Lenders();
   lenderB.name = 'lenderB';
-  lenderB.interest_rate = 0.09;
+  lenderB.interest_rate = 0.06;
   lenderB.monthly_fee = 50;
   lenderB.broker_fee = 0.0175;
 
