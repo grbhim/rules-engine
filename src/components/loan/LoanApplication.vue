@@ -34,7 +34,6 @@ import {defineComponent, ref} from 'vue'
 import {LocalStorageService} from "src/services/local-storage";
 import {RepaymentCalculator} from "src/shared/repaymentCalculator";
 import LoanOptions from "components/loan/LoanOptions";
-let pmt = require('formula-pmt');
 
 export default defineComponent({
   name: 'LoanApplication',
